@@ -11,7 +11,7 @@ const Filter = () => {
   const filter = useSelector(getFilter);
 
   const handleFilterChange = e => dispatch(setFilter(e.target.value));
-
+  
   return (
     <Div>
       <Label htmlFor={filterId}>

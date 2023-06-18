@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/contactsSlice';
+import { deleteContact } from 'redux/operations';
 import PropTypes from 'prop-types';
 import { Item, BtnDel } from './ContactItem.styled';
 
@@ -12,7 +12,9 @@ const Contact = ({ id, name, number }) => {
   return (
     <Item>
       <div>
+        <p>
         {name}: {number}
+        </p>
         <BtnDel type="button" onClick={() => handleDelete(id)}>
           Delete
         </BtnDel>
