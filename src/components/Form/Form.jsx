@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
 import { getContacts } from 'redux/selectors';
 
 import { FormStyled, Input, Label, Btn } from './Form.styled'
@@ -44,7 +44,7 @@ export default function Form() {
       alert(`${name} or ${number} is already in contacts`);
       return;
     } else {
-      dispatch(addContact(name, number));
+      dispatch(addContact({ name, number }));
     }
 
     reset();
@@ -62,6 +62,7 @@ export default function Form() {
       </Label>
 
       <Input
+        
         type="text"
         name="name"
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
